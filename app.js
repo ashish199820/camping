@@ -3,7 +3,7 @@ var app= express();
 var bodyParser= require("body-parser");
 var mongoose = require("mongoose");
 //mongoose.connect("mongodb://localhost/campground",{useNewUrlParser:true});
-mongoose.connect("mongodb+srv://ashish:aryan@camp-db-ce0bj.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://ashish:aryan@camp-db-ce0bj.mongodb.net/test?retryWrites=true&w=majority",{useUnifiedTopology: true,useNewUrlParser: true,});
 app.use(bodyParser.urlencoded({extended:true}));
 var ejs= require("ejs");
 var request=require("request");
