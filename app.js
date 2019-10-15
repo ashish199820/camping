@@ -2,7 +2,8 @@ var express = require("express");
 var app= express();
 var bodyParser= require("body-parser");
 var mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost/campground",{useNewUrlParser:true});
+//mongoose.connect("mongodb://localhost/campground",{useNewUrlParser:true});
+mongoose.connect("mongodb+srv://ashish:aryan@camp-db-ce0bj.mongodb.net/test?retryWrites=true&w=majority",{useNewUrlParser:true});
 app.use(bodyParser.urlencoded({extended:true}));
 var ejs= require("ejs");
 var request=require("request");
@@ -66,5 +67,5 @@ app.get("/campgrounds/:id",function(req,res){
 })
 //console.log(process.env.PORT);
 app.listen(process.env.PORT||3000,process.env.IP||"127.0.0.1",function(){
-    console.log("started");
+    console.log(`$process.env.IP`);
 })
