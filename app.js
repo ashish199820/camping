@@ -2,19 +2,22 @@ var express = require("express");
 var app= express();
 var bodyParser= require("body-parser");
 var mongoose = require("mongoose");
+var ejs= require("ejs");
+var request=require("request");
+var uri = "mongodb+srv://ashish:aryan@camp-db-ce0bj.mongodb.net/test?retryWrites=true&w=majority&authSource=admin";
 //mongoose.connect("mongodb://localhost/campground",{useNewUrlParser:true});
-mongoose.connect("mongodb+srv://ashish:aryan@camp-db-ce0bj.mongodb.net/test?retryWrites=true&w=majority&authSource=admin",{useUnifiedTopology: true,useNewUrlParser: true,}).
+mongoose.connect(uri,{useUnifiedTopology: true,useNewUrlParser: true,}).
 then(()=>{
     console.log("db connected");
 }).catch((err)=>{
     console.log(err);
 });
 app.use(bodyParser.urlencoded({extended:true}));
-var ejs= require("ejs");
-var request=require("request");
+
 
 app.set("veiw engine","ejs");
 app.use('/public',express.static(__dirname+'/public'));
+
 var campSchema = new mongoose.Schema({
     name:String,
     image:String,
@@ -71,6 +74,6 @@ app.get("/campgrounds/:id",function(req,res){
                     ///find the campground with the required id and show it's detail
 })
 //console.log(process.env.PORT);
-app.listen(process.env.PORT||3000,process.env.IP||"127.0.0.1",function(){
-    console.log("hey");
+app.listen(process.env.PORT,process.env.IP,function(){
+    console.log(process.env.PORT+"  "+process.env.IP);
 })
