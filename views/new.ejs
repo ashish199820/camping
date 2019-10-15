@@ -1,0 +1,16 @@
+<% include partials/header %>
+<div class="container">
+<h1>create new form tag</h1>
+<form action="/campgrounds" method="POST">
+    <div class="form-group">
+        <label for="Email">Email:</label>
+<input type="text" name= "name" placeholder="name" class="form-control">
+<label >image</label>
+<input type="text" name = "image" placeholder="image" class="form-control">
+<label>Description:</label>
+<textarea name="description" cols="30" rows="4" placeholder="description" class="form-control"></textarea>
+<button class="btn btn-primary btn-large"> submit</button>  <!--to post the form-->
+</div>
+</form>
+</div>
+<% include partials/footer %>
