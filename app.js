@@ -4,9 +4,9 @@ var bodyParser= require("body-parser");
 var mongoose = require("mongoose");
 var ejs= require("ejs");
 var request=require("request");
-var uri = "mongodb+srv://ashish:aryan@camp-db-ce0bj.mongodb.net/test?retryWrites=true&w=majority&authSource=admin";
+var uri = "mongodb+srv://ashish:aryan@cluster0-ce0bj.mongodb.net/test?retryWrites=true&w=majority&authSource=admin";
 //mongoose.connect("mongodb://localhost/campground",{useNewUrlParser:true});
-mongoose.connect(uri,{useUnifiedTopology: true,useNewUrlParser: true,}).
+mongoose.connect(uri,{useUnifiedTopology: true,useNewUrlParser: true,useMongoClient:true}).
 then(()=>{
     console.log("db connected");
 }).catch((err)=>{
