@@ -67,5 +67,5 @@ app.get("/campgrounds/:id",function(req,res){
 })
 //console.log(process.env.PORT);
 app.listen(process.env.PORT||3000,process.env.IP||"127.0.0.1",function(){
-    console.log(`$process.env.IP`);
+    console.log("hey");
 })
